@@ -1,11 +1,12 @@
-FROM rust:latest as builder
+FROM rust:1-alpine3.17 as builder
+
+RUN apk --update add openssl g++
 
 WORKDIR /pfpet
 COPY . .
 RUN cargo build --release
 
-FROM debian:buster-slim
-RUN apt-get update
+FROM alpine:3.17
 COPY --from=builder /pfpet/target/release/pfpet /usr/local/bin/pfpet
 
 ARG DISCORD_TOKEN
