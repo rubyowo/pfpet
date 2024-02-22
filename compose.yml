@@ -1,0 +1,8 @@
+services:
+  pfpet:
+    build:
+      context: ./
+      args:
+        DISCORD_TOKEN: ${DISCORD_TOKEN:?Missing DISCORD_TOKEN}
+    ports:
+      - "${PORT}:3000"
