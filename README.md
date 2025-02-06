@@ -3,7 +3,7 @@
 A quick and easy way to apply filters to your friend's online avatars!
 Just place their username/id in the right route and voilà, you have their avatar being petted or bonked or what have you.
 
-Current base URL: `https://pfpet.what-is.ml/`
+Current base URL: `https://pfpet.whoison.top/`
 
 ## Endpoints
 
