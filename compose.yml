@@ -4,5 +4,15 @@ services:
       context: ./
       args:
         DISCORD_TOKEN: ${DISCORD_TOKEN:?Missing DISCORD_TOKEN}
-    ports:
-      - "${PORT}:3000"
+    labels:
+      - "caddy=pfpet.whoison.top"
+      - "caddy.import=tls-rei"
+      # - "caddy.reverse_proxy={{upstreams 3000}}"
+      - "caddy.encode=zstd gzip"
+      - "caddy.reverse_proxy=pfpet:3000"
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true
