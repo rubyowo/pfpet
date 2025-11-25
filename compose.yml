@@ -4,12 +4,8 @@ services:
       context: ./
       args:
         DISCORD_TOKEN: ${DISCORD_TOKEN:?Missing DISCORD_TOKEN}
-    labels:
-      - "caddy=pfpet.whoison.top"
-      - "caddy.import=tls-rei"
-      # - "caddy.reverse_proxy={{upstreams 3000}}"
-      - "caddy.encode=zstd gzip"
-      - "caddy.reverse_proxy=pfpet:3000"
+    ports:
+      - "10.10.10.2:${VPS_PORT}:3000"
     networks:
       - coolify
 
